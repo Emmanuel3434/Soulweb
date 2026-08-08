@@ -70,7 +70,7 @@ export default function Dashboard() {
 
 function InstanceTable({data,toggle,remove}:{data:Instance[],toggle:(x:Instance)=>void,remove:(id:string)=>void}){
   if(!data.length)return <div className="empty">No hay instancias todavía.</div>;
-  return <div className="tablewrap"><table className="table"><thead><tr><th>Nombre</th><th>Versión</th><th>Loader</th><th>Visible</th><th>Whitelist</th><th></th></tr></thead><tbody>{data.map(x=><tr key={x.id}><td><b>{x.name}</b></td><td>{x.version}</td><td><span className="badge">{x.loader}</span></td><td><span className={"badge "+("")}>{"Sí"}</span></td><td>{x.whitelist_enabled?"Activa":"Desactivada"}</td><td><button className="btn secondary" onClick={()=>toggle(x)}>Cambiar</button> <button className="btn danger" onClick={()=>remove(x.id)}>Eliminar</button></td></tr>)}</tbody></table></div>;
+  return <div className="tablewrap"><table className="table"><thead><tr><th>Nombre</th><th>Versión</th><th>Loader</th><th>Visible</th><th>Whitelist</th><th></th></tr></thead><tbody>{data.map(x=><tr key={x.id}><td><b>{x.name}</b></td><td>{x.version}</td><td><span className="badge">{x.modloader}</span></td><td><span className="badge">Sí</span></td><td>{x.whitelist_enabled?"Activa":"Desactivada"}</td><td><button className="btn secondary" onClick={()=>toggle(x)}>Cambiar</button> <button className="btn danger" onClick={()=>remove(x.id)}>Eliminar</button></td></tr>)}</tbody></table></div>;
 }
 
 function UserTable({data}:{data:User[]}){
